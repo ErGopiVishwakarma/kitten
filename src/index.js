@@ -28,7 +28,7 @@ app.post('/login', async (req, res) => {
 // get all user detail 
 app.get('/alluser', async (req, res) => {
     try {
-        const data = await UserMdoel.find()
+        const data = await UserMdoel.find().sort({ score: -1 })
         res.status(200).send(data)
     } catch (error) {
         res.status(400).send('something went wrong')
